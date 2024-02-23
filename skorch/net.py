@@ -2228,7 +2228,7 @@ class NeuralNet:
         with tempfile.SpooledTemporaryFile() as f:
             f.write(state['__cuda_dependent_attributes__'])
             f.seek(0)
-            cuda_attrs = torch.load(f, **load_kwargs)
+            cuda_attrs = {} # torch.load(f, **load_kwargs)
 
         state.update(cuda_attrs)
         state.pop('__cuda_dependent_attributes__')
